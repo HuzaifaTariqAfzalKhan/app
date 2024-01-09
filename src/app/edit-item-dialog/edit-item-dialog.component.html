@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Edit Item</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="editedItem.name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Quantity" [(ngModel)]="editedItem.quantity" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Unit" [(ngModel)]="editedItem.unit" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Parent</mat-label>
+    <mat-select [(ngModel)]="editedItem.parent" placeholder="Select Parent">
+      <mat-option *ngFor="let node of parentNodes" [value]="node">
+        {{ node.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="saveUpdate()">Save Update</button>
+</div>
